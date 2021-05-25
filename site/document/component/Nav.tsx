@@ -59,13 +59,17 @@ export default function Nav() {
             <Link replace to="/document" className={isActive('document')}>
                 {getHome()}
             </Link>
-            <Link replace to="/document/Introduce" className={isActive('Introduce')}>
+            <Link
+                replace
+                to="/document/Introduce"
+                className={isActive('Introduce')}
+            >
                 {getComponent()}
             </Link>
             <div className="document-nav-lang">
                 {getLanguageSet()}
                 <select defaultValue={getLanguage()} onChange={setLanguage}>
-                    {languages.map(item => (
+                    {languages.map((item) => (
                         <option key={item.code} value={item.code}>
                             {item.content}
                         </option>

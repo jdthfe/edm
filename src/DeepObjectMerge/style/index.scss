@@ -1,0 +1,6 @@
+@import '../../style/mixin';
+$deepobjectmerge-prefix: $preifx + '-deepobjectmerge';
+
+.#{$deepobjectmerge-prefix} {
+    text-decoration: underline;
+}

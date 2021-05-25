@@ -1,5 +1,5 @@
 {
-    "name": "@jdthfe/eui",
+    "name": "@jdthfe/ivory",
     "keywords": [
         "eui",
         "typescript",
@@ -7,7 +7,7 @@
         "ui",
         "mobile"
     ],
-    "version": "0.0.3",
+    "version": "0.0.1",
     "description": "",
     "files": [
         "compiled"
@@ -26,22 +26,39 @@
         "compile": "gulp -f ./scripts/gulp/gulpfile.ts compile",
         "prod": "yarn dist && yarn compile",
         "eslint": "eslint",
-        "likk": "node ./scripts/config/likk.ts"
+        "likk": "node ./scripts/config/likk.ts",
+        "tsc": "tsc -pretty --emitDeclarationOnly -p tsconfig.dts.json"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/jdthfe/eui.git"
     },
-    "author": "qqqqqcy",
+    "author": "likkhappy",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/jdthfe/eui/issues"
     },
+    "sideEffects": [
+        "compiled/dist/*",
+        "compiled/es/**/style/*",
+        "compiled/lib/**/style/*",
+        "*.scss"
+    ],
     "homepage": "https://github.com/jdthfe/eui#readme",
     "dependencies": {
+        "@babel/plugin-proposal-decorators": "^7.14.2",
+        "@babel/plugin-proposal-export-default-from": "^7.12.13",
+        "@babel/plugin-transform-object-assign": "^7.12.13",
         "@babel/runtime-corejs2": "^7.5.5",
+        "babel-plugin-inline-import-data-uri": "^1.0.1",
         "classnames": "^2.2.6",
-        "vfile-message": "^2.0.4"
+        "eslint-loader": "^4.0.2",
+        "gulp-strip-code": "^0.1.4",
+        "http-proxy-middleware": "^2.0.0",
+        "node-sass": "^4.14.1",
+        "stylelint-webpack-plugin": "^2.1.1",
+        "vfile-message": "^2.0.4",
+        "webpack-dev-server": "^3.11.2"
     },
     "devDependencies": {
         "@babel/core": "^7.3.4",
@@ -77,10 +94,8 @@
         "@types/stylelint-webpack-plugin": "^0.1.2",
         "@types/svgo": "^1.0.1",
         "@types/webpack": "^4.4.24",
-        "@types/webpack-dev-server": "^3.1.2",
         "@types/webpack-merge": "^4.1.3",
-        "@typescript-eslint/eslint-plugin": "^1.5.0",
-        "@typescript-eslint/parser": "^1.5.0",
+        "@jdthfe/eui": "^0.0.2",
         "autoprefixer": "^9.5.0",
         "babel-jest": "^24.5.0",
         "babel-loader": "^8.0.5",
@@ -88,11 +103,12 @@
         "cross-env": "^5.2.0",
         "css-loader": "^2.1.0",
         "cssnano": "^4.1.10",
-        "eslint": "^5.15.3",
+        "eslint": "^7.26.0",
         "eslint-config-prettier": "^4.1.0",
-        "eslint-loader": "^2.1.2",
         "eslint-plugin-prettier": "^3.0.1",
-        "eslint-plugin-react-hooks": "^1.6.0",
+        "eslint-plugin-react-hooks": "^4.0.0",
+        "@typescript-eslint/eslint-plugin": "^1.5.0",
+        "@typescript-eslint/parser": "^1.5.0",
         "file-loader": "^3.0.1",
         "fork-ts-checker-webpack-plugin": "^1.0.0",
         "gulp": "^4.0.0",
@@ -101,7 +117,7 @@
         "gulp-postcss": "^8.0.0",
         "gulp-rename": "^1.4.0",
         "gulp-replace": "^1.0.0",
-        "gulp-sass": "^4.0.2",
+        "gulp-sass": "^4.1.0",
         "gulp-typescript": "^5.0.1",
         "gulp-watch": "^5.0.1",
         "html-webpack-plugin": "^3.2.0",
@@ -109,11 +125,9 @@
         "jest": "^24.5.0",
         "merge2": "^1.2.3",
         "mini-css-extract-plugin": "^0.5.0",
-        "node-sass": "^4.12.0",
         "postcss-loader": "^3.0.0",
         "postcss-pxtorem": "^4.0.1",
-        "prettier": "^1.16.4",
-        "prettier-stylelint": "^0.4.2",
+        "prettier": "^2.0.5",
         "raw-loader": "^2.0.0",
         "react": "^16.9.0-alpha.0",
         "react-dom": "^16.9.0-alpha.0",
@@ -126,11 +140,11 @@
         "rimraf": "^2.6.3",
         "sass-loader": "^7.1.0",
         "style-loader": "^0.23.1",
-        "stylelint": "^9.10.1",
-        "stylelint-config-recommended-scss": "^3.2.0",
-        "stylelint-order": "^2.1.0",
-        "stylelint-scss": "^3.5.4",
-        "stylelint-webpack-plugin": "^0.10.5",
+        "stylelint": "^13.3.3",
+        "stylelint-config-prettier": "^8.0.1",
+        "stylelint-config-recommended-scss": "^4.2.0",
+        "stylelint-order": "^4.0.0",
+        "stylelint-scss": "^3.17.2",
         "svg-sprite-loader": "^4.1.3",
         "svgo": "^1.2.1",
         "through2": "^3.0.1",
@@ -139,7 +153,6 @@
         "url-loader": "^1.1.2",
         "webpack": "^4.29.5",
         "webpack-cli": "^3.2.3",
-        "webpack-dev-server": "^3.2.1",
         "webpack-merge": "^4.2.1"
     }
 }

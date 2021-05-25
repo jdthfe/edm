@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@src/index';
+import { Button } from '@jdthfe/eui';
 // import Logo from './component/Logo';
 import logo from '../assets/logo1.png';
 import { Link } from 'react-router-dom';
@@ -31,12 +31,21 @@ const Preface = () => {
                     </a>
                 </p>
                 <Link to="/document/Introduce">
-                    <Button style={{ color: '#b73132' }} className="preface-btn" inline>
+                    <Button
+                        style={{ color: '#b73132' }}
+                        className="preface-btn"
+                        inline
+                    >
                         document
                     </Button>
                 </Link>
                 <Link to="/instance">
-                    <Button style={{ color: '#b73132' }} ghost className="preface-btn" inline>
+                    <Button
+                        style={{ color: '#b73132' }}
+                        ghost
+                        className="preface-btn"
+                        inline
+                    >
                         instance
                     </Button>
                 </Link>

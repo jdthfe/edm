@@ -14,7 +14,7 @@ export const markdownOnly: ComponentIndex[] = markdownOnlyNoType;
 
 export const sortComponentIndex = (componentIndex: ComponentIndex[]) => {
     const newStructure: { [propName: string]: ComponentIndex[] } = {};
-    componentIndex.map(item => {
+    componentIndex.map((item) => {
         if (newStructure[item.type]) {
             newStructure[item.type].push(item);
         } else {
@@ -40,16 +40,25 @@ export const getDocs = (item: ComponentIndex) => {
     const docs: Docs = { readme: '' };
     try {
         if (item.type === 'markdownOnly') {
-            languages.map(lang => {
-                const readmeLang = `readme${lang.code === 'en-US' ? '' : '.' + lang.code}`,
-                    mdLang = `${item.name}${lang.code === 'en-US' ? '' : '.' + lang.code}`;
-                docs[readmeLang] = require(`!!raw-loader!../document/markdown/${mdLang}.md`).default;
+            languages.map((lang) => {
+                const readmeLang = `readme${
+                        lang.code === 'en-US' ? '' : '.' + lang.code
+                    }`,
+                    mdLang = `${item.name}${
+                        lang.code === 'en-US' ? '' : '.' + lang.code
+                    }`;
+                docs[readmeLang] =
+                    require(`!!raw-loader!../document/markdown/${mdLang}.md`).default;
             });
         } else {
-            docs.demoSource = require(`!!raw-loader!../../src/${item.name}/demo`).default;
-            languages.map(lang => {
-                const readmeLang = `readme${lang.code === 'en-US' ? '' : '.' + lang.code}`;
-                docs[readmeLang] = require(`!!raw-loader!../../src/${item.name}/demo/${readmeLang}.md`).default;
+            docs.demoSource =
+                require(`!!raw-loader!../../src/${item.name}/demo`).default;
+            languages.map((lang) => {
+                const readmeLang = `readme${
+                    lang.code === 'en-US' ? '' : '.' + lang.code
+                }`;
+                docs[readmeLang] =
+                    require(`!!raw-loader!../../src/${item.name}/demo/${readmeLang}.md`).default;
             });
         }
     } catch (e) {

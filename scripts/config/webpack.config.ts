@@ -13,13 +13,16 @@ interface EnvMap {
     development: string;
     [key: string]: string;
 }
-const devMode: boolean = (process.env.NODE_ENV as keyof EnvMap) === 'development';
+const devMode: boolean =
+    (process.env.NODE_ENV as keyof EnvMap) === 'development';
 
-const tsconfig = getProjectUrl(`tsconfig.${process.env.NODE_ENV === 'dist' ? 'dts.' : ''}json`);
+const tsconfig = getProjectUrl(
+    `tsconfig.${process.env.NODE_ENV === 'dist' ? 'dts.' : ''}json`,
+);
 
 const config: webpack.Configuration = {
     resolve: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.scss', 'css'],
         alias: {
             '@src': getProjectUrl('src'),
             '@tests': getProjectUrl('scripts', 'tests'),
@@ -28,7 +31,9 @@ const config: webpack.Configuration = {
     // output: {
     //     publicPath: './dist',
     // },
-    devtool: devMode ? 'cheap-module-eval-source-map' : 'cheap-module-source-map',
+    devtool: devMode
+        ? 'cheap-module-eval-source-map'
+        : 'cheap-module-source-map',
     module: {
         rules: [
             {
@@ -65,6 +70,11 @@ const config: webpack.Configuration = {
                 ],
             },
             {
+                test: /\.css$/,
+                include: /(node_modules)/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader'],
+            },
+            {
                 test: /\.svg$/,
                 loader: 'svg-sprite-loader',
             },
@@ -80,7 +90,7 @@ const config: webpack.Configuration = {
         new StyleLintPluginfrom({
             configFile: getProjectUrl('.stylelintrc.js'),
             context: getProjectUrl(),
-            files: ['**/*.scss'],
+            files: ['src/**/*.scss'],
             failOnError: false,
             emitErrors: true,
             syntax: 'scss',

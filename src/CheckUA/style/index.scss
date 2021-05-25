@@ -1,0 +1,6 @@
+@import '../../style/mixin';
+$checkua-prefix: $preifx + '-checkua';
+
+.#{$checkua-prefix} {
+    text-decoration: underline;
+}

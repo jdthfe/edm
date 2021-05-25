@@ -1,0 +1,6 @@
+@import '../../style/mixin';
+$getquery-prefix: $preifx + '-getquery';
+
+.#{$getquery-prefix} {
+    text-decoration: underline;
+}
