@@ -1,4 +1,4 @@
-import webpack from 'webpack';
+// import webpack from 'webpack';
 import base from './webpack.config';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 // import MiniCssExtractPlugin from "mini-css-extract-plugin";
@@ -11,7 +11,7 @@ import { getProjectUrl } from '../helpers';
 
 import webpackMerge from 'webpack-merge';
 
-const config: webpack.Configuration = {
+const config: any = {
     mode: 'development',
     devServer: {
         stats: {

@@ -1,0 +1,6 @@
+@import '../../style/mixin';
+$throttle-prefix: $preifx + '-throttle';
+
+.#{$throttle-prefix} {
+    text-decoration: underline;
+}

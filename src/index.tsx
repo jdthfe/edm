@@ -13,23 +13,8 @@ if (
             'please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.',
     );
 }
-export { default as _util } from './_util';
-export { default as Button } from './Button';
-export { default as Icon } from './Icon';
-export { default as TouchFeedback } from './TouchFeedback';
-export { default as Portal } from './Portal';
-export { default as TransitionWrap } from './TransitionWrap';
-export { default as CountDown } from './CountDown';
-export { default as Popover } from './Popover';
-export { default as FixTop } from './FixTop';
-export { default as Badge } from './Badge';
-export { default as Tabs } from './Tabs';
-export { default as WingBlank } from './WingBlank';
-export { default as WhiteSpace } from './WhiteSpace';
-export { default as Toast } from './Toast';
-export { default as MessageBox } from './MessageBox';
-export { default as Cover } from './Cover';
-export { default as List } from './List';
-export { default as Input } from './Input';
-export { default as Popup } from './Popup';
-export { default as Radio } from './Radio';
+export { default as CheckUA } from './CheckUA';
+export { default as GetQuery } from './GetQuery';
+export { default as DeepObjectMerge } from './DeepObjectMerge';
+export { default as FormatePrice } from './FormatePrice';
+export { default as Throttle } from './Throttle';

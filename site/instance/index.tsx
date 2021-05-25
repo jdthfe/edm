@@ -3,7 +3,7 @@ import React from 'react';
 import { componentIndex, sortComponentIndex } from '../_util';
 import Home from './Home';
 import Demo from './Demo';
-const Mobile: React.FC<RouteComponentProps> = props => {
+const Mobile: React.FC<RouteComponentProps> = (props) => {
     const { match } = props;
     return (
         <div className="instance">
@@ -13,10 +13,16 @@ const Mobile: React.FC<RouteComponentProps> = props => {
                 </Link>
                 | {(location.href.split('/').pop() || '').toUpperCase()}
             </nav>
-            {match.isExact ? <Home structure={sortComponentIndex(componentIndex)} /> : null}
+            {match.isExact ? (
+                <Home structure={sortComponentIndex(componentIndex)} />
+            ) : null}
 
-            {componentIndex.map(item => (
-                <Route key={item.name} path={`/instance/${item.name}`} component={() => <Demo item={item} />} />
+            {componentIndex.map((item) => (
+                <Route
+                    key={item.name}
+                    path={`/instance/${item.name}`}
+                    component={() => <Demo item={item} />}
+                />
             ))}
         </div>
     );

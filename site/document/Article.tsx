@@ -18,16 +18,27 @@ function getRenderContent(str: string = '', k: number = 0): JSX.Element[] {
             [pre, after] = str.split(code);
         const codeDom = pre.includes('## Demo') ? (
             <div key={k + 1} className="markdown-body-code">
-                <SyntaxHighlighter style={base16AteliersulphurpoolLight} language="jsx">
+                <SyntaxHighlighter
+                    style={base16AteliersulphurpoolLight}
+                    language="jsx"
+                >
                     {code.replace(/(^```[jt]sx\s*|```$)/g, '')}）
                 </SyntaxHighlighter>
             </div>
         ) : (
-            <SyntaxHighlighter key={k + 1} style={base16AteliersulphurpoolLight} language="jsx">
+            <SyntaxHighlighter
+                key={k + 1}
+                style={base16AteliersulphurpoolLight}
+                language="jsx"
+            >
                 {code.replace(/(^```[jt]sx\s*|```$)/g, '')}
             </SyntaxHighlighter>
         );
-        return [<ReactMarkdown key={k} source={pre} />, codeDom, ...getRenderContent(after, k + 2)];
+        return [
+            <ReactMarkdown key={k} source={pre} />,
+            codeDom,
+            ...getRenderContent(after, k + 2),
+        ];
     } else {
         return [<ReactMarkdown key={k} source={str} />];
     }
@@ -39,9 +50,14 @@ const Article = (props: ContainerProps) => {
         { demoSource } = docs,
         lang = getLanguage(),
         readme = docs[`readme${lang !== 'en-US' ? '.' + lang : ''}`] || '';
-    const str = `# ${item.name} ${lang !== 'en-US' ? item[lang] : ''}\n${readme.replace(
+    const str = `# ${item.name} ${
+        lang !== 'en-US' ? item[lang] : ''
+    }\n${readme.replace(
         '## Demo',
-        `## Demo\n\`\`\`jsx\n${demoSource}\n\`\`\``.replace('@src/index', '@jdthfe/eui'),
+        `## Demo\n\`\`\`jsx\n${demoSource}\n\`\`\``.replace(
+            '@src/index',
+            '@jdthfe/eui',
+        ),
     )}`;
     return (
         <article className="document-article">

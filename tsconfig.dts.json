@@ -3,9 +3,10 @@
         "noUnusedParameters": true,
         "noUnusedLocals": true,
         "strictNullChecks": true,
+        "target": "es6",
         "jsx": "preserve",
-        "target": "ESNext",
         "moduleResolution": "node",
+        "declaration": true,
         "allowSyntheticDefaultImports": true,
         "allowJs": false,
         "lib": ["es6", "dom"],
@@ -13,8 +14,9 @@
         "noImplicitAny": true,
         "esModuleInterop": true,
         "declarationDir": "./compiled/es",
-        "declaration": true
+        "skipLibCheck": true
     },
     "include": ["src"],
-    "exclude": ["**/demo", "**/__tests__", "node_modules", "src/scss.tsx"]
+    // "exclude": ["node_modules", "lib", "es"]
+    "exclude": ["node_modules","**/demo", "**/__tests__", "node_modules/*/**", "src/scss.tsx"]
 }

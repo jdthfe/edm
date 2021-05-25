@@ -16,8 +16,8 @@ $fade-prefix: $preifx + '-fade';
 $zoom-prefix: $preifx + '-zoom';
 .#{$zoom-prefix} {
     opacity: 1;
-    transition: all $transitionTime;
     transform-origin: 0 0;
+    transition: all $transitionTime;
     &-entry.#{$zoom-prefix} {
         opacity: 0;
         transform: scale(2) translate(-50%, -50%);

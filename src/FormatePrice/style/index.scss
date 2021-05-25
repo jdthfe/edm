@@ -1,0 +1,6 @@
+@import '../../style/mixin';
+$formateprice-prefix: $preifx + '-formateprice';
+
+.#{$formateprice-prefix} {
+    text-decoration: underline;
+}
